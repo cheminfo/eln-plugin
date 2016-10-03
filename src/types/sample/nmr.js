@@ -18,13 +18,13 @@ module.exports = {
         });
     },
 
-    getProperty(filename, content) {
+    getProperty(filename, metaData) {
         const extension = common.getExtension(filename);
         if(extension === 'jdx' || extension === 'dx') {
-            if(isFid.test(filename)) {
+            if(metaData && metaData.isFid) {
                 return 'jcampFID';
             }
-            if(isFt.test(filename)) {
+            if(metaData && metaData.isFt) {
                 return 'jcampFT';
             }
             return 'jcamp';
