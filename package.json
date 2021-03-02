@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "module": "src/index.js",
   "scripts": {
-    "build": "rollup -c && cheminfo-build --root elnPlugin",
+    "generate-index": "node scripts/createTypeIndex.mjs",
+    "build": "npm run generate-index && rollup -c && cheminfo-build --root elnPlugin",
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
     "prepublishOnly": "rollup -c",
@@ -41,7 +42,6 @@
   "dependencies": {
     "atob": "^2.1.2",
     "base64-js": "^1.5.1",
-    "bulk-require": "^1.0.1",
     "genbank-parser": "^1.2.4",
     "netcdf-gcms": "^1.4.0",
     "nmr-metadata": "^3.0.0"

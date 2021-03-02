@@ -1,6 +1,10 @@
 node_modules
 .idea/
 .eslintcache
-dist
 .DS_Store
 coverage
+
+# Generated during build
+src/types/index.js
+lib
+dist

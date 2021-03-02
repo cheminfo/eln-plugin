@@ -2,7 +2,7 @@ import { getAllTypes, getType } from './types';
 import util from './types/common';
 import defaults from './util/defaults';
 
-export default {
+const elnPlugin = {
   util,
   /**
    *
@@ -24,10 +24,8 @@ export default {
     }
     const metadata = typeProcessor.process(filename, content);
 
-    console.log(metadata, property)
-
     metadata[property] = {
-      filename: module.exports.getFilename(type, content.filename),
+      filename: elnPlugin.getFilename(type, content.filename),
     };
 
     if (options.keepContent) {
@@ -45,14 +43,14 @@ export default {
   },
 
   getType: function (type, doc, kind) {
-    const typeProcessor = types.getType(type, kind);
+    const typeProcessor = getType(type, kind);
     return getFromJpath(doc, typeProcessor);
   },
 
   getFilename(type, filename) {
     let match = /[^/]*$/.exec(filename);
     if (match) filename = match[0];
-    const typeProcessor = types.getType(type);
+    const typeProcessor = getType(type);
     const jpath = typeProcessor.jpath;
     if (!jpath) throw new Error('No such type or no jpath');
     return jpath.concat(filename).join('/');
@@ -69,7 +67,7 @@ export default {
   },
 
   defaults(kind, content) {
-    let empty = module.exports.getEmpty(kind);
+    let empty = elnPlugin.getEmpty(kind);
     defaults(true, content, empty);
     return content;
   },
@@ -77,7 +75,9 @@ export default {
 
 function createFromJpath(doc, typeProcessor) {
   const jpath = typeProcessor.jpath;
-  if (!jpath) throw new Error('createFromJpath: undefined jpath argument');
+  if (!jpath) {
+    throw new Error('createFromJpath: undefined jpath argument');
+  }
   for (let i = 0; i < jpath.length; i++) {
     if (doc[jpath[i]] === undefined) {
       if (i !== jpath.length - 1) {
@@ -106,3 +106,5 @@ function getFromJpath(doc, typeProcessor) {
   }
   return doc;
 }
+
+export default elnPlugin;

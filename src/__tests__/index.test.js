@@ -3,7 +3,7 @@ import { join } from 'path';
 
 import elnPlugin from '..';
 
-test.only('index - nmr meta info', () => {
+test('index - nmr meta info', () => {
   let jcamp = fs.readFileSync(join(__dirname, 'data/nmr_1d.jdx'), 'base64');
   let metadata = elnPlugin.process(
     'nmr',
@@ -20,6 +20,7 @@ test.only('index - nmr meta info', () => {
           experiment: '1d',
           expno: 1,
           frequency: 400.082470657773,
+          isComplex: true,
           isFid: false,
           isFt: true,
           jcamp: { filename: 'spectra/nmr/abc.jdx' },
