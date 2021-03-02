@@ -7,7 +7,7 @@
   "scripts": {
     "generate-index": "node scripts/createTypeIndex.mjs",
     "build": "npm run generate-index && rollup -c && cheminfo-build --root elnPlugin",
-    "eslint": "eslint src",
+    "eslint": "npm run generate-index && eslint src",
     "eslint-fix": "npm run eslint -- --fix",
     "prepublishOnly": "rollup -c",
     "test": "npm run generate-index && npm run test-coverage && npm run eslint",
