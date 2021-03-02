@@ -1,10 +1,8 @@
-'use strict';
+import atob from 'atob';
+import { toByteArray } from 'base64-js';
 
-const atob = require('atob');
-const { toByteArray } = require('base64-js');
-
-const common = (module.exports = {});
-
+const common = {};
+export default common;
 common.getBasename = function (filename) {
   let base = filename.replace(/.*\//, '');
   return base.replace(/\.[0-9]+$/, '');

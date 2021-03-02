@@ -1,13 +1,11 @@
-'use strict';
+import { fromJcamp } from 'nmr-metadata';
+
+import common from '../common';
 
 const isFid = /[^a-z]fid[^a-z]/i;
 const replaceFid = /[^a-z]fid[^a-z]?/i;
-
-const common = require('../common');
-const nmrLib = require('../nmr');
-
-module.exports = {
-  find(nmr, filename) {
+export default {
+  find: (nmr, filename) => {
     let reference = getReference(filename);
 
     return nmr.find((nmr) => {
@@ -15,7 +13,7 @@ module.exports = {
     });
   },
 
-  getProperty(filename) {
+  getProperty: (filename) => {
     const extension = common.getExtension(filename);
     if (extension === 'jdx' || extension === 'dx' || extension === 'jcamp') {
       if (isFid.test(filename)) {
@@ -25,17 +23,17 @@ module.exports = {
     return common.getTargetProperty(filename);
   },
 
-  process(filename, content) {
+  process: (filename, content) => {
     const extension = common.getExtension(filename);
-    var metaData = {};
+    let metaData = {};
     if (extension === 'jdx' || extension === 'dx' || extension === 'jcamp') {
       let textContent = common.getTextContent(content);
-      metaData = nmrLib.getMetadata(textContent);
+      metaData = fromJcamp(textContent);
     }
     return metaData;
   },
 
-  jpath: ['spectra', 'nmr']
+  jpath: ['spectra', 'nmr'],
 };
 
 const reg2 = /(.*)\.(.*)/;

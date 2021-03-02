@@ -1,7 +1,4 @@
-'use strict';
-
-
-module.exports = {
+export default {
   jpath: [],
   getEmpty() {
     return {
@@ -14,7 +11,7 @@ module.exports = {
       keywords: [],
       remarks: '',
       title: '',
-      reactionRXN: '$RXN\n\n\n\n  0  0\n'
+      reactionRXN: '$RXN\n\n\n\n  0  0\n',
     };
-  }
+  },
 };

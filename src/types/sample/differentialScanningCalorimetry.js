@@ -1,9 +1,7 @@
-'use strict';
+import common from '../common';
 
-const common = require('../common');
-
-module.exports = {
+export default {
   jpath: ['spectra', 'differentialScanningCalorimetry'],
   find: common.basenameFind,
-  getProperty: common.getTargetProperty
+  getProperty: common.getTargetProperty,
 };

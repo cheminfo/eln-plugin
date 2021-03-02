@@ -1,8 +1,6 @@
-'use strict';
-
-module.exports = {
+export default {
   jpath: ['physical'],
   getEmpty() {
     return {};
-  }
+  },
 };

@@ -1,10 +1,8 @@
-'use strict';
+import { getAllTypes, getType } from './types';
+import util from './types/common';
+import defaults from './util/defaults';
 
-const types = require('./types');
-const defaults = require('./util/defaults');
-const util = require('./types/common');
-
-module.exports = {
+export default {
   util,
   /**
    *
@@ -17,8 +15,7 @@ module.exports = {
    */
   process: function (type, doc, content, customMetadata, options = {}) {
     let filename = content.filename;
-
-    const typeProcessor = types.getType(type);
+    const typeProcessor = getType(type);
     const arr = createFromJpath(doc, typeProcessor);
     const entry = typeProcessor.find(arr, filename);
     const property = typeProcessor.getProperty(filename, content);
@@ -27,8 +24,10 @@ module.exports = {
     }
     const metadata = typeProcessor.process(filename, content);
 
+    console.log(metadata, property)
+
     metadata[property] = {
-      filename: module.exports.getFilename(type, content.filename)
+      filename: module.exports.getFilename(type, content.filename),
     };
 
     if (options.keepContent) {
@@ -51,7 +50,7 @@ module.exports = {
   },
 
   getFilename(type, filename) {
-    var match = /[^/]*$/.exec(filename);
+    let match = /[^/]*$/.exec(filename);
     if (match) filename = match[0];
     const typeProcessor = types.getType(type);
     const jpath = typeProcessor.jpath;
@@ -60,7 +59,7 @@ module.exports = {
   },
 
   getEmpty(kind, content) {
-    const typeProcessors = types.getAllTypes(kind);
+    const typeProcessors = getAllTypes(kind);
     if (!content) content = {};
     for (let i = 0; i < typeProcessors.length; i++) {
       createFromJpath(content, typeProcessors[i]);
@@ -70,10 +69,10 @@ module.exports = {
   },
 
   defaults(kind, content) {
-    var empty = module.exports.getEmpty(kind);
+    let empty = module.exports.getEmpty(kind);
     defaults(true, content, empty);
     return content;
-  }
+  },
 };
 
 function createFromJpath(doc, typeProcessor) {

@@ -1,10 +1,8 @@
-'use strict';
+import genbankParser from 'genbank-parser';
 
-const genbankParser = require('genbank-parser');
+import common from '../common';
 
-const common = require('../common');
-
-module.exports = {
+export default {
   find(genbank, filename) {
     let reference = common.getBasename(filename);
 
@@ -22,10 +20,10 @@ module.exports = {
     let toReturn;
     const parsed = genbankParser(textContent);
     toReturn = {
-      seq: parsed.map((p) => p.parsedSequence)
+      seq: parsed.map((p) => p.parsedSequence),
     };
     return toReturn;
   },
 
-  jpath: ['biology', 'nucleic']
+  jpath: ['biology', 'nucleic'],
 };

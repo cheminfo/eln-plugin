@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = {
+export default {
   jpath: ['general'],
   getEmpty() {
     return {
@@ -13,7 +11,7 @@ module.exports = {
       keyword: [],
       meta: {},
       sequence: '',
-      kind: ''
+      kind: '',
     };
-  }
+  },
 };

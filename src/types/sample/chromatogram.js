@@ -1,12 +1,10 @@
-'use strict';
+import parseNetCDF from 'netcdf-gcms';
 
-const parseNetCDF = require('netcdf-gcms');
-
-const common = require('../common');
+import common from '../common';
 
 function process(filename, content) {
   const extension = common.getExtension(filename);
-  var metaData = {};
+  let metaData = {};
   if (extension === 'cdf' || extension === 'netcdf') {
     let bufferContent = common.getBufferContent(content);
     let parsed = parseNetCDF(bufferContent, { meta: true });
@@ -16,10 +14,9 @@ function process(filename, content) {
   }
   return metaData;
 }
-
-module.exports = {
+export default {
   jpath: ['spectra', 'chromatogram'],
   find: common.basenameFind,
   getProperty: common.getTargetProperty,
-  process
+  process,
 };

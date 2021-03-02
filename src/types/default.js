@@ -1,11 +1,9 @@
-'use strict';
-
-module.exports = {
+export default {
   process() {
     return {};
   },
 
   getEmpty() {
     return [];
-  }
+  },
 };

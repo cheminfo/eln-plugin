@@ -5,12 +5,10 @@
 
 /* eslint prefer-rest-params: 0 */
 
-'use strict';
+let hasOwn = Object.prototype.hasOwnProperty;
+let toStr = Object.prototype.toString;
 
-var hasOwn = Object.prototype.hasOwnProperty;
-var toStr = Object.prototype.toString;
-
-var isArray = function isArray(arr) {
+let isArray = function isArray(arr) {
   if (typeof Array.isArray === 'function') {
     return Array.isArray(arr);
   }
@@ -18,13 +16,13 @@ var isArray = function isArray(arr) {
   return toStr.call(arr) === '[object Array]';
 };
 
-var isPlainObject = function isPlainObject(obj) {
+let isPlainObject = function isPlainObject(obj) {
   if (!obj || toStr.call(obj) !== '[object Object]') {
     return false;
   }
 
-  var hasOwnConstructor = hasOwn.call(obj, 'constructor');
-  var hasIsPrototypeOf =
+  let hasOwnConstructor = hasOwn.call(obj, 'constructor');
+  let hasIsPrototypeOf =
     obj.constructor &&
     obj.constructor.prototype &&
     hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
@@ -35,20 +33,19 @@ var isPlainObject = function isPlainObject(obj) {
 
   // Own properties are enumerated firstly, so to speed up,
   // if last one is own, then all properties are own.
-  var key;
+  let key;
   for (key in obj) {
     /**/
   }
 
   return typeof key === 'undefined' || hasOwn.call(obj, key);
 };
-
-module.exports = function defaults() {
-  var options, name, src, copy, copyIsArray, clone;
-  var target = arguments[0];
-  var i = 1;
-  var length = arguments.length;
-  var deep = false;
+export default function defaults() {
+  let options, name, src, copy, copyIsArray, clone;
+  let target = arguments[0];
+  let i = 1;
+  let length = arguments.length;
+  let deep = false;
 
   // Handle a deep copy situation
   if (typeof target === 'boolean') {
@@ -107,4 +104,4 @@ module.exports = function defaults() {
 
   // Return the modified object
   return target;
-};
+}
