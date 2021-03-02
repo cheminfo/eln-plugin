@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "module": "src/index.js",
   "scripts": {
-    "generate-index": "node scripts/createTypeIndex.mjs",
+    "generate-index": "node -r esm scripts/createTypeIndex.js",
     "build": "npm run generate-index && rollup -c && cheminfo-build --root elnPlugin",
     "eslint": "npm run generate-index && eslint src",
     "eslint-fix": "npm run eslint -- --fix",

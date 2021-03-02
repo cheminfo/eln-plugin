@@ -1,19 +1,19 @@
-import fs from 'fs/promises';
-import path from 'path';
+import { writeFileSync, readdirSync } from 'fs';
+import { join } from 'path';
 
 const outFile = 'src/types/index.js';
 const outContent = ['const lib = {};'];
 const inputDir = 'src/types';
 async function exec() {
-  let directories = await fs.readdir(inputDir, {
+  let directories = readdirSync(inputDir, {
     withFileTypes: true,
   });
   directories = directories.filter((dir) => dir.isDirectory());
   for (let directory of directories) {
     const kind = directory.name;
-    const typeDirectory = path.join(inputDir, directory.name);
+    const typeDirectory = join(inputDir, directory.name);
 
-    let files = await fs.readdir(typeDirectory, {
+    let files = readdirSync(typeDirectory, {
       withFileTypes: true,
     });
     files = files.filter((file) => file.isFile());
@@ -26,7 +26,7 @@ async function exec() {
   }
 
   outContent.push('export default lib;');
-  await fs.writeFile(outFile, outContent.join('\n'));
+  writeFileSync(outFile, outContent.join('\n'));
 }
 
 exec().catch(() => {
