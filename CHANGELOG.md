@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.21.1](https://www.github.com/cheminfo/eln-plugin/compare/v0.21.0...v0.21.1) (2021-03-02)
+
+
+### Bug Fixes
+
+* create types/index before publish ([406f4a3](https://www.github.com/cheminfo/eln-plugin/commit/406f4a3aa0dc3b68b9a8104cd1de16b240fb6fbf))
+
 ## [0.21.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.20.0...v0.21.0) (2021-03-02)
 
 
