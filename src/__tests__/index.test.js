@@ -1,16 +1,14 @@
-'use strict';
+import fs from 'fs';
+import { join } from 'path';
 
-const fs = require('fs');
-const { join } = require('path');
+import elnPlugin from '..';
 
-const elnPlugin = require('../src');
-
-test('index - nmr meta info', () => {
+test.only('index - nmr meta info', () => {
   let jcamp = fs.readFileSync(join(__dirname, 'data/nmr_1d.jdx'), 'base64');
   let metadata = elnPlugin.process(
     'nmr',
     {},
-    { filename: 'abc.jdx', content: jcamp, encoding: 'base64' }
+    { filename: 'abc.jdx', content: jcamp, encoding: 'base64' },
   );
   expect(metadata).toStrictEqual({
     spectra: {
@@ -31,10 +29,10 @@ test('index - nmr meta info', () => {
           solvent: 'DMSO',
           temperature: 298.0016,
           title: 'ethylbenzene',
-          type: 'NMR SPECTRUM'
-        }
-      ]
-    }
+          type: 'NMR SPECTRUM',
+        },
+      ],
+    },
   });
 });
 
@@ -45,7 +43,7 @@ test('index - nmr meta info and keep content', () => {
     {},
     { filename: 'abc.jdx', content: jcamp, encoding: 'base64' },
     {},
-    { keepContent: true }
+    { keepContent: true },
   );
   expect(entry.spectra.nmr[0].jcamp.data.length).toBeGreaterThan(10000);
   expect(entry.spectra.nmr[0]).toMatchObject({
@@ -64,23 +62,25 @@ test('index - nmr meta info and keep content', () => {
     solvent: 'DMSO',
     temperature: 298.0016,
     title: 'ethylbenzene',
-    type: 'NMR SPECTRUM'
+    type: 'NMR SPECTRUM',
   });
 });
 
 test('index - agilent-hplc meta info', () => {
   let netcdf = fs.readFileSync(
     join(__dirname, 'data/agilent-hplc.cdf'),
-    'base64'
+    'base64',
   );
   let metadata = elnPlugin.process(
     'chromatogram',
     {},
-    { filename: 'abc.cdf', content: netcdf, encoding: 'base64' }
+    { filename: 'abc.cdf', content: netcdf, encoding: 'base64' },
   );
   expect(metadata).toStrictEqual({
     spectra: {
-      chromatogram: [{ cdf: { filename: 'spectra/chromatogram/abc.cdf' }, detector: 'tic' }]
-    }
+      chromatogram: [
+        { cdf: { filename: 'spectra/chromatogram/abc.cdf' }, detector: 'tic' },
+      ],
+    },
   });
 });

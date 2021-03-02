@@ -1,15 +1,13 @@
-'use strict';
+import fs from 'fs';
+import { join } from 'path';
 
-const fs = require('fs');
-const { join } = require('path');
-
-const nmr = require('../src/types/sample/nmr');
+import nmr from '../types/sample/nmr';
 
 test('nmr meta info', () => {
   let jcamp = fs.readFileSync(join(__dirname, 'data/nmr_1d.jdx'), 'base64');
   let metadata = nmr.process('test_code_batch.jdx', {
     content: jcamp,
-    encoding: 'base64'
+    encoding: 'base64',
   });
   expect(metadata).toStrictEqual({
     acquisitionMode: 0,
@@ -18,6 +16,7 @@ test('nmr meta info', () => {
     experiment: '1d',
     expno: 1,
     frequency: 400.082470657773,
+    isComplex: true,
     isFid: false,
     isFt: true,
     nucleus: ['1H'],
@@ -26,6 +25,6 @@ test('nmr meta info', () => {
     solvent: 'DMSO',
     temperature: 298.0016,
     title: 'ethylbenzene',
-    type: 'NMR SPECTRUM'
+    type: 'NMR SPECTRUM',
   });
 });

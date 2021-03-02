@@ -1,6 +1,4 @@
-'use strict';
-
-const common = require('../src/types/common');
+import common from '../types/common';
 
 test('common.js', () => {
   expect(common.getBasename('./ab/cd/ef.ext')).toBe('ef.ext');
