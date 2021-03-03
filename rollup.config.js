@@ -3,5 +3,8 @@ export default {
   output: {
     format: 'cjs',
     file: 'lib/index.js'
+  },
+  treeshake: {
+    moduleSideEffects: ['openchemlib']
   }
 };
