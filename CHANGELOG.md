@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.22.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.21.0...v0.22.0) (2021-03-03)
+
+
+### Features
+
+* add xrayFluoresence ([f6849e7](https://www.github.com/cheminfo/eln-plugin/commit/f6849e727295f654f21efa8ea4a49db2e085a11d))
+
+
+### Bug Fixes
+
+* create types/index before publish ([406f4a3](https://www.github.com/cheminfo/eln-plugin/commit/406f4a3aa0dc3b68b9a8104cd1de16b240fb6fbf))
+* update cheminfo-build to remove openchemlib if not imported explicitely ([aa08606](https://www.github.com/cheminfo/eln-plugin/commit/aa086069fd19d84822ce3b81292383bd2f7631bd))
+
 ## [0.21.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.20.0...v0.21.0) (2021-03-02)
 
 
