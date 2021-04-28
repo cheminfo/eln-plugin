@@ -1,5 +1,6 @@
 import atob from 'atob';
 import { toByteArray } from 'base64-js';
+import { convert } from 'jcampconverter';
 
 const common = {};
 export default common;
@@ -107,4 +108,18 @@ common.getBufferContent = function getBufferContent(content) {
     default:
       return content.content;
   }
+};
+
+common.getMetaFromJcamp = (filename, content) => {
+  const extension = common.getExtension(filename);
+  let metaData = {};
+  if (extension === 'jdx' || extension === 'dx' || extension === 'jcamp') {
+    let textContent = common.getTextContent(content);
+    let parsed = convert(textContent, {
+      withoutXY: true,
+      keepRecordsRegExp: /cheminfo/i,
+    }).flatten[0];
+    return parsed?.meta?.cheminfo?.meta || {};
+  }
+  return metaData;
 };
