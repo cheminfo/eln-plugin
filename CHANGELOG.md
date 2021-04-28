@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.23.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.22.0...v0.23.0) (2021-04-28)
+
+
+### Features
+
+* extract cheminfo meta from jcamp of XPS ([106a891](https://www.github.com/cheminfo/eln-plugin/commit/106a89187829ce9a850c6166db984eb3fbd02ffd))
+
+
+### Bug Fixes
+
+* keep compatibility with node 10 and 12 ([78ace3d](https://www.github.com/cheminfo/eln-plugin/commit/78ace3d9df43a4c312ebf2500012e69460ab1529))
+
 ## [0.22.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.21.0...v0.22.0) (2021-03-03)
 
 
