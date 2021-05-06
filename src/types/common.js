@@ -119,13 +119,12 @@ common.getMetaFromJcamp = (filename, content) => {
       withoutXY: true,
       keepRecordsRegExp: /cheminfo/i,
     }).flatten[0];
-    return (
-      (parsed &&
-        parsed.meta &&
-        parsed.meta.cheminfo &&
-        parsed.meta.cheminfo.meta) ||
-      {}
-    );
+    if (parsed && parsed.meta && parsed.meta.cheminfo) {
+      let cheminfo = JSON.parse(parsed.meta.cheminfo);
+      if (cheminfo.meta) {
+        return cheminfo.meta;
+      }
+    }
   }
   return metaData;
 };
