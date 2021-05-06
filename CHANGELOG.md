@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.24.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.23.0...v0.24.0) (2021-05-06)
+
+
+### Features
+
+* add oan ([e49f966](https://www.github.com/cheminfo/eln-plugin/commit/e49f96612c61800145d9bfb88a29c4f2e7c1b933))
+
+
+### Bug Fixes
+
+* parse cheminfo.meta to deal with new jcampconverter ([0a14f3e](https://www.github.com/cheminfo/eln-plugin/commit/0a14f3e3b7639d3b12cbd27a24b0ae44e21df957))
+
 ## [0.23.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.22.0...v0.23.0) (2021-04-28)
 
 
