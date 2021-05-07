@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.25.1](https://www.github.com/cheminfo/eln-plugin/compare/v0.25.0...v0.25.1) (2021-05-07)
+
+
+### Bug Fixes
+
+* update nmr-metadata package ([76f8fca](https://www.github.com/cheminfo/eln-plugin/commit/76f8fcae0c4114fff71be7feadfd54d0e4646451))
+
 ## [0.25.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.24.0...v0.25.0) (2021-05-07)
 
 
