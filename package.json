@@ -45,6 +45,6 @@
     "genbank-parser": "^1.2.4",
     "jcampconverter": "^8.1.1",
     "netcdf-gcms": "^1.4.0",
-    "nmr-metadata": "^3.1.0"
+    "nmr-metadata": "^3.1.1"
   }
 }
