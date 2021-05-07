@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.25.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.24.0...v0.25.0) (2021-05-07)
+
+
+### Features
+
+* allow to extra nmr metadata from ArrayBuffer ([f8424d9](https://www.github.com/cheminfo/eln-plugin/commit/f8424d94c42a35893a7267c02b5fa36d7f1f267f))
+
 ## [0.24.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.23.0...v0.24.0) (2021-05-06)
 
 
