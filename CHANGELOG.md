@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.26.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.25.1...v0.26.0) (2021-05-10)
+
+
+### Features
+
+* extract meta information from jcamp cheminfo LDR ([25691ca](https://www.github.com/cheminfo/eln-plugin/commit/25691ca65915db773f28d69900622f2338bc4c5d))
+
 ### [0.25.1](https://www.github.com/cheminfo/eln-plugin/compare/v0.25.0...v0.25.1) (2021-05-07)
 
 
