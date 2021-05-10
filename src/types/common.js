@@ -120,9 +120,14 @@ common.getMetaFromJcamp = (filename, content) => {
       keepRecordsRegExp: /cheminfo/i,
     }).flatten[0];
     if (parsed && parsed.meta && parsed.meta.cheminfo) {
-      let cheminfo = JSON.parse(parsed.meta.cheminfo);
-      if (cheminfo.meta) {
-        return cheminfo.meta;
+      try {
+        let cheminfo = JSON.parse(parsed.meta.cheminfo);
+        if (cheminfo.meta) {
+          return cheminfo.meta;
+        }
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.trace(e);
       }
     }
   }

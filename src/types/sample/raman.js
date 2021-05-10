@@ -4,4 +4,5 @@ export default {
   jpath: ['spectra', 'raman'],
   find: common.basenameFind,
   getProperty: common.getTargetProperty,
+  process: common.getMetaFromJcamp,
 };

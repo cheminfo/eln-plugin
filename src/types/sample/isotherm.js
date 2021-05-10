@@ -4,4 +4,5 @@ export default {
   jpath: ['spectra', 'isotherm'],
   find: common.basenameFind,
   getProperty: common.getTargetProperty,
+  process: common.getMetaFromJcamp,
 };
