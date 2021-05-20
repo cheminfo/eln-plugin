@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.27.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.26.0...v0.27.0) (2021-05-20)
+
+
+### Features
+
+* add pelletHardness ([1505cc7](https://www.github.com/cheminfo/eln-plugin/commit/1505cc783d47827ca4473d8af58bae3a5cad87d5))
+
 ## [0.26.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.25.1...v0.26.0) (2021-05-10)
 
 
