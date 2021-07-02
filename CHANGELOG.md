@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.28.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.27.0...v0.28.0) (2021-07-02)
+
+
+### Features
+
+* add bet ([2ef9a3d](https://www.github.com/cheminfo/eln-plugin/commit/2ef9a3db692bb306c81797b22d00e0c390426504))
+
 ## [0.27.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.26.0...v0.27.0) (2021-05-20)
 
 
