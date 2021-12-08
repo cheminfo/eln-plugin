@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.28.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.27.0...v0.28.0) (2021-12-08)
+
+
+### Features
+
+* add bet ([2ef9a3d](https://www.github.com/cheminfo/eln-plugin/commit/2ef9a3db692bb306c81797b22d00e0c390426504))
+* add CV ([13ac589](https://www.github.com/cheminfo/eln-plugin/commit/13ac5895ea1b9943f9d582010a402c1d8dfcf875))
+* add dls and icp ([86f3047](https://www.github.com/cheminfo/eln-plugin/commit/86f3047bbce3091dfbf79c8a487e8269025d6849))
+* add void volume ([77e6e5f](https://www.github.com/cheminfo/eln-plugin/commit/77e6e5f3797e302a56db34b9b759dc0aa93a342f))
+
+
+### Bug Fixes
+
+* dls jpath ([a3b994c](https://www.github.com/cheminfo/eln-plugin/commit/a3b994ccb747db9bd73f0bb04dbcbf2e74302897))
+* update dependencies and fix eslint ([281525d](https://www.github.com/cheminfo/eln-plugin/commit/281525dcbf4edce60447e7de73a14f0b35d852aa))
+
 ## [0.27.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.26.0...v0.27.0) (2021-05-20)
 
 
