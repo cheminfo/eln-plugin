@@ -13,7 +13,7 @@ const elnPlugin = {
    * @param {object} [options={}]
    * @param {boolean} [options.keepContent=false]
    */
-  process: function (type, doc, content, customMetadata, options = {}) {
+  process(type, doc, content, customMetadata, options = {}) {
     let filename = content.filename;
     const typeProcessor = getType(type);
     const arr = createFromJpath(doc, typeProcessor);
@@ -42,7 +42,7 @@ const elnPlugin = {
     return doc;
   },
 
-  getType: function (type, doc, kind) {
+  getType(type, doc, kind) {
     const typeProcessor = getType(type, kind);
     return getFromJpath(doc, typeProcessor);
   },

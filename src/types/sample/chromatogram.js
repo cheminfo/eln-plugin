@@ -14,6 +14,7 @@ function process(filename, content) {
   }
   return metaData;
 }
+
 export default {
   jpath: ['spectra', 'chromatogram'],
   find: common.basenameFind,

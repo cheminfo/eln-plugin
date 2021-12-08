@@ -4,17 +4,17 @@ import { convert } from 'jcampconverter';
 
 const common = {};
 export default common;
-common.getBasename = function (filename) {
+common.getBasename = function getBasename(filename) {
   let base = filename.replace(/.*\//, '');
   return base.replace(/\.[0-9]+$/, '');
 };
 
-common.getExtension = function (filename) {
+common.getExtension = function getExtension(filename) {
   let extension = common.getBasename(filename);
   return extension.replace(/.*\./, '').toLowerCase();
 };
 
-common.getFilename = function (typeEntry) {
+common.getFilename = function getFilename(typeEntry) {
   let keys = Object.keys(typeEntry);
   for (let i = 0; i < keys.length; i++) {
     if (typeEntry[keys[i]] && typeEntry[keys[i]].filename) {
@@ -24,7 +24,7 @@ common.getFilename = function (typeEntry) {
   return undefined;
 };
 
-common.basenameFind = function (typeEntries, filename) {
+common.basenameFind = function basenameFind(typeEntries, filename) {
   let reference = common.getBasename(filename);
 
   return typeEntries.find((typeEntry) => {
@@ -32,7 +32,7 @@ common.basenameFind = function (typeEntries, filename) {
   });
 };
 
-common.getTargetProperty = function (filename) {
+common.getTargetProperty = function getTargetProperty(filename) {
   switch (common.getExtension(filename)) {
     case 'jdx':
     case 'dx':
@@ -78,7 +78,7 @@ common.getTargetProperty = function (filename) {
   }
 };
 
-common.getContent = function (content, target) {
+common.getContent = function getContent(content, target) {
   switch (target) {
     case 'text':
     case 'xml':
@@ -110,7 +110,7 @@ common.getBufferContent = function getBufferContent(content) {
   }
 };
 
-common.getMetaFromJcamp = (filename, content) => {
+common.getMetaFromJcamp = function getMetaFromJcamp(filename, content) {
   const extension = common.getExtension(filename);
   let metaData = {};
   if (extension === 'jdx' || extension === 'dx' || extension === 'jcamp') {
