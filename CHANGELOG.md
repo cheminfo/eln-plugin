@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.29.0](https://github.com/cheminfo/eln-plugin/compare/v0.28.0...v0.29.0) (2022-04-25)
+
+
+### Features
+
+* add empty stock property in sample ([b55a71d](https://github.com/cheminfo/eln-plugin/commit/b55a71da78a97df7748de5f2301d121bd48c21dc))
+
 ## [0.28.0](https://www.github.com/cheminfo/eln-plugin/compare/v0.27.0...v0.28.0) (2021-12-08)
 
 
