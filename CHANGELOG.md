@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.29.1](https://github.com/cheminfo/eln-plugin/compare/v0.29.0...v0.29.1) (2022-07-13)
+
+
+### Bug Fixes
+
+* empty reaction should have meta and not keywords ([97da14d](https://github.com/cheminfo/eln-plugin/commit/97da14dc0c71f7270ca36638dcb588f31e2dc970))
+
 ## [0.29.0](https://github.com/cheminfo/eln-plugin/compare/v0.28.0...v0.29.0) (2022-04-25)
 
 
