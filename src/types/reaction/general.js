@@ -8,7 +8,7 @@ export default {
       products: [],
       reagents: [],
       conditions: '',
-      keywords: [],
+      meta: {},
       remarks: '',
       title: '',
       reactionRXN: '$RXN\n\n\n\n  0  0\n',
