@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.30.0](https://github.com/cheminfo/eln-plugin/compare/v0.29.1...v0.30.0) (2022-07-25)
+
+
+### Features
+
+* add permeability ([3fab0ee](https://github.com/cheminfo/eln-plugin/commit/3fab0ee747b9310ea16889bf0b6e97173a63b9de))
+
 ## [0.29.1](https://github.com/cheminfo/eln-plugin/compare/v0.29.0...v0.29.1) (2022-07-13)
 
 
