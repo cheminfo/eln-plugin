@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.31.0](https://github.com/cheminfo/eln-plugin/compare/v0.30.0...v0.31.0) (2022-08-12)
+
+
+### Features
+
+* chromatgram use reference rather than filename to combine entries ([3265e72](https://github.com/cheminfo/eln-plugin/commit/3265e7234a544e4c20aa92705c55187d7f3238b8))
+
 ## [0.30.0](https://github.com/cheminfo/eln-plugin/compare/v0.29.1...v0.30.0) (2022-07-25)
 
 
