@@ -9,6 +9,17 @@ common.getBasename = function getBasename(filename) {
   return base.replace(/\.[0-9]+$/, '');
 };
 
+/**
+ * The reference remove the basedir and the extension
+ * @param {*} filename
+ * @returns
+ */
+common.getReference = function getReference(filename) {
+  let base = filename.replace(/.*\//, '');
+  base = base.replace(/\.[0-9]+$/, '');
+  return base.replace(/\..*?$/, '');
+};
+
 common.getExtension = function getExtension(filename) {
   let extension = common.getBasename(filename);
   return extension.replace(/.*\./, '').toLowerCase();
@@ -29,6 +40,14 @@ common.basenameFind = function basenameFind(typeEntries, filename) {
 
   return typeEntries.find((typeEntry) => {
     return common.getBasename(common.getFilename(typeEntry)) === reference;
+  });
+};
+
+common.referenceFind = function referenceFind(typeEntries, filename) {
+  let reference = common.getReference(filename);
+
+  return typeEntries.find((typeEntry) => {
+    return common.getReference(common.getFilename(typeEntry)) === reference;
   });
 };
 

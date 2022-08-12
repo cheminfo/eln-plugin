@@ -6,6 +6,9 @@ test('common.js', () => {
   expect(common.getExtension('./ab/cd/ef.EXT')).toBe('ext');
   expect(common.getExtension('./ab/cd/ef.EXT.1234')).toBe('ext');
 
+  expect(common.getReference('ab.cdf')).toBe('ab');
+  expect(common.getReference('./ab/cd/ab.cdf')).toBe('ab');
+
   expect(common.getTargetProperty('./ab/cd/ef.jdx')).toBe('jcamp');
   expect(common.getTargetProperty('./ab/cd/ef.dx')).toBe('jcamp');
   expect(common.getTargetProperty('./ab/cd/ef.jcamp')).toBe('jcamp');

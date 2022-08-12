@@ -17,7 +17,7 @@ function process(filename, content) {
 
 export default {
   jpath: ['spectra', 'chromatogram'],
-  find: common.basenameFind,
+  find: common.referenceFind,
   getProperty: common.getTargetProperty,
   process,
 };
