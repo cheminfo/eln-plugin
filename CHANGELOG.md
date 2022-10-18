@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.32.0](https://github.com/cheminfo/eln-plugin/compare/v0.31.0...v0.32.0) (2022-10-18)
+
+
+### Features
+
+* map meta information from mass ([5100f31](https://github.com/cheminfo/eln-plugin/commit/5100f31bbe77bd46cb867b09c9864937ffe4291e))
+
 ## [0.31.0](https://github.com/cheminfo/eln-plugin/compare/v0.30.0...v0.31.0) (2022-08-12)
 
 
