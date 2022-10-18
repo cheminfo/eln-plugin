@@ -129,24 +129,45 @@ common.getBufferContent = function getBufferContent(content) {
   }
 };
 
-common.getMetaFromJcamp = function getMetaFromJcamp(filename, content) {
+common.getMetaFromJcamp = function getMetaFromJcamp(
+  filename,
+  content,
+  options = {},
+) {
   const extension = common.getExtension(filename);
+  const { mapping } = options;
   let metaData = {};
   if (extension === 'jdx' || extension === 'dx' || extension === 'jcamp') {
     let textContent = common.getTextContent(content);
     let parsed = convert(textContent, {
       withoutXY: true,
-      keepRecordsRegExp: /cheminfo/i,
+      keepRecordsRegExp: /.*/i,
+      canonicMetadataLabels: true,
     }).flatten[0];
-    if (parsed && parsed.meta && parsed.meta.cheminfo) {
+    if (parsed && parsed.meta && parsed.meta.CHEMINFO) {
       try {
-        let cheminfo = JSON.parse(parsed.meta.cheminfo);
+        let cheminfo = JSON.parse(parsed.meta.CHEMINFO);
         if (cheminfo.meta) {
           return cheminfo.meta;
         }
       } catch (e) {
         // eslint-disable-next-line no-console
         console.trace(e);
+      }
+    }
+    if (mapping && parsed && parsed.meta) {
+      for (let key in mapping) {
+        if (parsed.meta[key]) {
+          const paths = mapping[key].split('.');
+          let currentTarget = metaData;
+          for (let i = 0; i < paths.length - 1; i++) {
+            if (!currentTarget[paths[i]]) {
+              metaData[paths[i]] = {};
+            }
+            currentTarget = metaData[paths[i]];
+          }
+          currentTarget[paths[paths.length - 1]] = parsed.meta[key];
+        }
       }
     }
   }

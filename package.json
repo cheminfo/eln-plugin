@@ -42,7 +42,7 @@
     "atob": "^2.1.2",
     "base64-js": "^1.5.1",
     "genbank-parser": "^1.2.4",
-    "jcampconverter": "^8.2.2",
+    "jcampconverter": "^9.0.2",
     "netcdf-gcms": "^1.4.0",
     "nmr-metadata": "^3.1.1"
   }
