@@ -17,6 +17,8 @@ test('mass meta info', () => {
     injection: 'Direct injection',
     mode: 'positive',
     instrument: 'Exploris 240',
+    ionisation: 'Nanochip-based ESI',
+    analyzer: 'LTQ-Orbitrap',
     conditions:
       'SPECTRUM - MS\n' +
       'Cephalochromine_MS2_HCD40.raw\n' +
