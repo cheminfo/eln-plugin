@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.32.1](https://github.com/cheminfo/eln-plugin/compare/v0.32.0...v0.32.1) (2022-10-18)
+
+
+### Bug Fixes
+
+* correct mass spectra info extraction ([37ec78f](https://github.com/cheminfo/eln-plugin/commit/37ec78f06ab11df738c37e252f44ad0c78910391))
+
 ## [0.32.0](https://github.com/cheminfo/eln-plugin/compare/v0.31.0...v0.32.0) (2022-10-18)
 
 
