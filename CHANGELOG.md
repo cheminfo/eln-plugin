@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.0](https://github.com/cheminfo/eln-plugin/compare/v0.32.1...v1.0.0) (2026-03-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate to type=module, TS and update dependencies
+
+### Features
+
+* add zeta potential ([abc1597](https://github.com/cheminfo/eln-plugin/commit/abc15975ea92b245104cc7f518facd12280e6dcb))
+* migrate to type=module, TS and update dependencies ([a92fad6](https://github.com/cheminfo/eln-plugin/commit/a92fad6357c3ad455873ce6c6893a1992dbefd73))
+
 ## [0.32.1](https://github.com/cheminfo/eln-plugin/compare/v0.32.0...v0.32.1) (2022-10-18)
 
 

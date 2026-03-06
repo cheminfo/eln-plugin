@@ -1,6 +1,6 @@
 {
   "name": "eln-plugin",
-  "version": "0.32.1",
+  "version": "1.0.0",
   "description": "Extract metainfo from chemical file formats into a well defined json structure",
   "type": "module",
   "exports": {
