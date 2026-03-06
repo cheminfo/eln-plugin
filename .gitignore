@@ -3,8 +3,6 @@ node_modules
 .eslintcache
 .DS_Store
 coverage
-
-# Generated during build
-src/types/index.js
 lib
+lib-esm
 dist
