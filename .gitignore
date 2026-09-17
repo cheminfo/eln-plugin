@@ -6,3 +6,4 @@ coverage
 lib
 lib-esm
 dist
+.claude
