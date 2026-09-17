@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/cheminfo/eln-plugin/compare/v1.0.0...v1.1.0) (2026-09-17)
+
+
+### Features
+
+* search for reference experiment remove the extension. ([95c6f40](https://github.com/cheminfo/eln-plugin/commit/95c6f4097422a7e0acb0789247762a86ff020b10))
+
 ## [1.0.0](https://github.com/cheminfo/eln-plugin/compare/v0.32.1...v1.0.0) (2026-03-06)
 
 
