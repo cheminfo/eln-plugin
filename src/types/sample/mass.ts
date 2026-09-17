@@ -1,14 +1,14 @@
 import type { ContentData } from '../common.ts';
 import {
-  basenameFind,
   getMetaFromJcamp,
   getTargetProperty,
+  referenceFind,
 } from '../common.ts';
 import type { TypeProcessor } from '../types.ts';
 
 const mass: TypeProcessor = {
   jpath: ['spectra', 'mass'],
-  find: basenameFind,
+  find: referenceFind,
   getProperty: getTargetProperty,
   process: (filename: string, content: ContentData) => {
     return getMetaFromJcamp(filename, content, {

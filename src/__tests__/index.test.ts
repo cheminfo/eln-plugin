@@ -100,3 +100,43 @@ test('index - agilent-hplc meta info', () => {
     },
   });
 });
+
+test('index - ir jcamp and its original text file share one entry', () => {
+  const jcamp = readFileSync(
+    join(import.meta.dirname, 'data/ir.jdx'),
+    'base64',
+  );
+  const doc: Record<string, unknown> = {};
+
+  elnPlugin.process('ir', doc, {
+    filename: 'abc.jdx',
+    content: jcamp,
+    encoding: 'base64',
+  });
+  elnPlugin.process('ir', doc, {
+    filename: 'abc.txt',
+    content: '1000 0.5\n1001 0.6\n',
+  });
+
+  const spectra = doc.spectra as { ir: Array<Record<string, unknown>> };
+
+  expect(spectra.ir).toHaveLength(1);
+  expect(spectra.ir[0]).toMatchObject({
+    jcamp: { filename: 'spectra/ir/abc.jdx' },
+    text: { filename: 'spectra/ir/abc.txt' },
+  });
+});
+
+test('index - images with the same reference stay on separate entries', () => {
+  const doc: Record<string, unknown> = {};
+
+  elnPlugin.process('image', doc, { filename: 'abc.png', content: '' });
+  elnPlugin.process('image', doc, { filename: 'abc.jpg', content: '' });
+
+  expect(doc).toStrictEqual({
+    image: [
+      { image: { filename: 'image/abc.png' } },
+      { image: { filename: 'image/abc.jpg' } },
+    ],
+  });
+});

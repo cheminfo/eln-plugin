@@ -1,13 +1,13 @@
 import {
-  basenameFind,
   getMetaFromJcamp,
   getTargetProperty,
+  referenceFind,
 } from '../common.ts';
 import type { TypeProcessor } from '../types.ts';
 
 const xps: TypeProcessor = {
   jpath: ['spectra', 'xps'],
-  find: basenameFind,
+  find: referenceFind,
   getProperty: getTargetProperty,
   process: getMetaFromJcamp,
 };

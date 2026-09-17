@@ -1,10 +1,10 @@
 import { fromJcamp } from 'nmr-metadata';
 
-import type { ContentData, TypeEntry } from '../common.ts';
+import type { ContentData } from '../common.ts';
 import {
-  getBasename,
+  findBy,
   getExtension,
-  getFilename,
+  getReference,
   getTargetProperty,
   getTextContent,
 } from '../common.ts';
@@ -14,13 +14,7 @@ const isFid = /[^a-z]fid[^a-z]/i;
 const replaceFid = /[^a-z]fid[^a-z]?/i;
 
 const nmr: TypeProcessor = {
-  find: (entries: TypeEntry[], filename: string) => {
-    const reference = getReference(filename);
-
-    return entries.find((entry) => {
-      return getReference(getFilename(entry) ?? '') === reference;
-    });
-  },
+  find: findBy(getNmrReference),
 
   getProperty: (filename: string) => {
     const extension = getExtension(filename);
@@ -48,16 +42,16 @@ const nmr: TypeProcessor = {
 
 export default nmr;
 
-const reg2 = /(?<name>.*)\.(?<ext>.*)/;
-
-function getReference(filename: string): string | undefined {
-  if (filename === undefined) return undefined;
-
-  let reference = getBasename(filename);
-  reference = reference.replace(reg2, '$1');
-
+/**
+ * An experiment is delivered as a FID and its Fourier transform, so the `fid`
+ * marker is not part of its identity.
+ * @param filename - The file path.
+ * @returns The reference string.
+ */
+function getNmrReference(filename: string): string {
+  const reference = getReference(filename);
   if (isFid.test(filename)) {
-    reference = reference.replace(replaceFid, '');
+    return reference.replace(replaceFid, '');
   }
   return reference;
 }

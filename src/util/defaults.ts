@@ -85,10 +85,7 @@ export default function defaults(...args: unknown[]): unknown {
 
             // Never move original objects, clone them
             if (target[name] === undefined) {
-              target[name] = defaults(deep, clone, copy) as Record<
-                string,
-                unknown
-              >;
+              target[name] = defaults(deep, clone, copy);
             } else {
               defaults(deep, clone, copy);
             }

@@ -15,6 +15,14 @@ test('common.ts', () => {
 
   expect(getReference('ab.cdf')).toBe('ab');
   expect(getReference('./ab/cd/ab.cdf')).toBe('ab');
+  expect(getReference('ab.cdf.1234')).toBe('ab');
+  expect(getReference('ab')).toBe('ab');
+  // only the last extension goes: a dotted segment is part of the identity
+  expect(getReference('ab.10.jdx')).toBe('ab.10');
+  expect(getReference('2026.03.06.jdx')).toBe('2026.03.06');
+  // except for the formats written as a double extension
+  expect(getReference('ab.mzdata.xml')).toBe('ab');
+  expect(getReference('ab.mzML.xml')).toBe('ab');
 
   expect(getTargetProperty('./ab/cd/ef.jdx')).toBe('jcamp');
   expect(getTargetProperty('./ab/cd/ef.dx')).toBe('jcamp');

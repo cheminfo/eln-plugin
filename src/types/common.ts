@@ -24,14 +24,30 @@ export function getBasename(filename: string): string {
 }
 
 /**
+ * Formats written as a double extension, where the last one alone does not
+ * identify the file (`sample.mzdata.xml`).
+ */
+const compoundExtensions = new Set(['mzdata', 'mzml', 'mzxml']);
+
+/**
  * Get the reference from a filename by removing basedir, trailing numeric extension, and file extension.
  * @param filename - The file path.
  * @returns The reference string.
  */
 export function getReference(filename: string): string {
-  let base = filename.replace(/.*\//, '');
-  base = base.replace(/\.[0-9]+$/, '');
-  return base.replace(/\..*?$/, '');
+  const reference = stripExtension(getBasename(filename));
+  const lastDot = reference.lastIndexOf('.');
+  if (
+    lastDot !== -1 &&
+    compoundExtensions.has(reference.slice(lastDot + 1).toLowerCase())
+  ) {
+    return stripExtension(reference);
+  }
+  return reference;
+}
+
+function stripExtension(basename: string): string {
+  return basename.replace(/\.[^.]*$/, '');
 }
 
 /**
@@ -60,38 +76,28 @@ export function getFilename(typeEntry: TypeEntry): string | undefined {
 }
 
 /**
- * Find a type entry by matching basename.
- * @param typeEntries - Array of type entries.
- * @param filename - The filename to match.
- * @returns The matching entry or undefined.
+ * Build a `find` that considers two files the same entry when `getKey` maps
+ * their filenames to the same value.
+ * @param getKey - The part of a filename that identifies an entry.
+ * @returns A `find` for a type processor.
  */
-export function basenameFind(
-  typeEntries: TypeEntry[],
-  filename: string,
-): TypeEntry | undefined {
-  const reference = getBasename(filename);
+export function findBy(
+  getKey: (filename: string) => string,
+): (typeEntries: TypeEntry[], filename: string) => TypeEntry | undefined {
+  return (typeEntries, filename) => {
+    const key = getKey(filename);
 
-  return typeEntries.find((typeEntry) => {
-    return getBasename(getFilename(typeEntry) ?? '') === reference;
-  });
+    return typeEntries.find((typeEntry) => {
+      return getKey(getFilename(typeEntry) ?? '') === key;
+    });
+  };
 }
 
-/**
- * Find a type entry by matching reference.
- * @param typeEntries - Array of type entries.
- * @param filename - The filename to match.
- * @returns The matching entry or undefined.
- */
-export function referenceFind(
-  typeEntries: TypeEntry[],
-  filename: string,
-): TypeEntry | undefined {
-  const reference = getReference(filename);
+/** Find a type entry by matching basename, so the extension is significant. */
+export const basenameFind = findBy(getBasename);
 
-  return typeEntries.find((typeEntry) => {
-    return getReference(getFilename(typeEntry) ?? '') === reference;
-  });
-}
+/** Find a type entry by matching reference, so the extension is ignored. */
+export const referenceFind = findBy(getReference);
 
 /**
  * Get the target property name based on file extension.

@@ -1,0 +1,22 @@
+[2026-09-17T11:19:45Z]
+<ide_opened_file>The user opened the file /Users/lpatiny/git/cheminfo/eln-plugin/src/types/sample/isotherm.ts in the IDE. This may or may not be related to the current task.</ide_opened_file>
+what is the difference between basenameFind and referenceFind
+
+[2026-09-17T11:23:25Z]
+<ide_selection>The user selected the lines 56 to 56 from /Users/lpatiny/git/cheminfo/eln-plugin/src/types/sample/nmr.ts:
+getBasename
+
+This may or may not be related to the current task.</ide_selection>
+why nmr is different ?
+
+[2026-09-17T11:24:39Z]
+<ide_opened_file>The user opened the file /Users/lpatiny/git/cheminfo/eln-plugin/src/types/sample/nmr.ts in the IDE. This may or may not be related to the current task.</ide_opened_file>
+where was referenceFind used before ? Because I think we should only strip the last extension in general
+
+[2026-09-17T11:26:39Z]
+I think mple.mzdata.xml is an exception.
+
+[2026-09-17T11:29:20Z]
+<ide_opened_file>The user opened the file /Users/lpatiny/git/cheminfo/eln-plugin/src/types/sample/nmr.ts in the IDE. This may or may not be related to the current task.</ide_opened_file>
+could getNmrReference be removed as well and consolidate ith this double extension ?
+

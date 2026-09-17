@@ -27,7 +27,7 @@ const genbank: TypeProcessor = {
     const parsed = genbankToJson(textContent);
     return {
       seq: parsed,
-    } as Record<string, unknown>;
+    };
   },
 
   jpath: ['biology', 'nucleic'],
